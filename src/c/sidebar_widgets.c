@@ -1020,8 +1020,10 @@ void HeartRate_draw(GContext *ctx, int yPosition) {
 
   int yOffset = layout.heartRateValueY;
 
-  // TODO: accessibility check?
-  int heart_rate = health_service_peek_current_value(HealthMetricHeartRateBPM);
+  int heart_rate = 0;
+  if (is_health_metric_accessible(HealthMetricHeartRateBPM)) {
+    heart_rate = health_service_peek_current_value(HealthMetricHeartRateBPM);
+  }
   char heart_rate_text[8];
 
   snprintf(heart_rate_text, sizeof(heart_rate_text), "%i", heart_rate);
