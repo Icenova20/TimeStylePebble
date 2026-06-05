@@ -52,8 +52,6 @@ function updateWeather(forceUpdate) {
     var storedLat = window.localStorage.getItem('weather_loc_lat');
     var storedLng = window.localStorage.getItem('weather_loc_lng');
 
-    // console.log("Stored lat: " +  storedLat + ", stored lng: " + storedLng);
-
     if(weatherLoc) { // do we have a stored location?
       // if so, we should check if we have valid LAT and LNG coords
       hasLocationCoords = (storedLat != undefined && storedLng != undefined)
