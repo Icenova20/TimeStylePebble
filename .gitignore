@@ -16,6 +16,7 @@ node_modules
 serial_dump.txt
 pebble_screenshot_*
 compile_commands.json
+coverage/
 
 # Ignore Apple Files
 # General
