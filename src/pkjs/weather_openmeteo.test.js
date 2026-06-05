@@ -96,3 +96,74 @@ describe('getWeatherFromCoords', () => {
     xhrRequestSpy.mockRestore();
   });
 });
+
+describe('getIconForWeatherCode', () => {
+  const { getIconForWeatherCode } = require('./weather_openmeteo');
+  const weatherCommon = require('./weather');
+  const icons = weatherCommon.icons;
+
+  test('should return correct icon for clear day and night', () => {
+    expect(getIconForWeatherCode(0, false)).toBe(icons.CLEAR_DAY);
+    expect(getIconForWeatherCode(0, true)).toBe(icons.CLEAR_NIGHT);
+  });
+
+  test('should return correct icon for partly cloudy day and night', () => {
+    expect(getIconForWeatherCode(1, false)).toBe(icons.PARTLY_CLOUDY);
+    expect(getIconForWeatherCode(1, true)).toBe(icons.PARTLY_CLOUDY_NIGHT);
+    expect(getIconForWeatherCode(2, false)).toBe(icons.PARTLY_CLOUDY);
+    expect(getIconForWeatherCode(2, true)).toBe(icons.PARTLY_CLOUDY_NIGHT);
+  });
+
+  test('should return correct icon for cloudy conditions', () => {
+    expect(getIconForWeatherCode(3)).toBe(icons.CLOUDY_DAY);
+    expect(getIconForWeatherCode(45)).toBe(icons.CLOUDY_DAY);
+    expect(getIconForWeatherCode(48)).toBe(icons.CLOUDY_DAY);
+  });
+
+  test('should return correct icon for light rain conditions', () => {
+    expect(getIconForWeatherCode(51)).toBe(icons.LIGHT_RAIN);
+    expect(getIconForWeatherCode(53)).toBe(icons.LIGHT_RAIN);
+    expect(getIconForWeatherCode(55)).toBe(icons.LIGHT_RAIN);
+    expect(getIconForWeatherCode(61)).toBe(icons.LIGHT_RAIN);
+    expect(getIconForWeatherCode(80)).toBe(icons.LIGHT_RAIN);
+  });
+
+  test('should return correct icon for heavy rain conditions', () => {
+    expect(getIconForWeatherCode(63)).toBe(icons.HEAVY_RAIN);
+    expect(getIconForWeatherCode(65)).toBe(icons.HEAVY_RAIN);
+    expect(getIconForWeatherCode(81)).toBe(icons.HEAVY_RAIN);
+    expect(getIconForWeatherCode(82)).toBe(icons.HEAVY_RAIN);
+  });
+
+  test('should return correct icon for raining and snowing conditions', () => {
+    expect(getIconForWeatherCode(56)).toBe(icons.RAINING_AND_SNOWING);
+    expect(getIconForWeatherCode(57)).toBe(icons.RAINING_AND_SNOWING);
+    expect(getIconForWeatherCode(66)).toBe(icons.RAINING_AND_SNOWING);
+    expect(getIconForWeatherCode(67)).toBe(icons.RAINING_AND_SNOWING);
+  });
+
+  test('should return correct icon for light snow conditions', () => {
+    expect(getIconForWeatherCode(71)).toBe(icons.LIGHT_SNOW);
+    expect(getIconForWeatherCode(77)).toBe(icons.LIGHT_SNOW);
+    expect(getIconForWeatherCode(85)).toBe(icons.LIGHT_SNOW);
+  });
+
+  test('should return correct icon for heavy snow conditions', () => {
+    expect(getIconForWeatherCode(73)).toBe(icons.HEAVY_SNOW);
+    expect(getIconForWeatherCode(75)).toBe(icons.HEAVY_SNOW);
+    expect(getIconForWeatherCode(86)).toBe(icons.HEAVY_SNOW);
+  });
+
+  test('should return correct icon for thunderstorm conditions', () => {
+    expect(getIconForWeatherCode(95)).toBe(icons.THUNDERSTORM);
+    expect(getIconForWeatherCode(96)).toBe(icons.THUNDERSTORM);
+    expect(getIconForWeatherCode(99)).toBe(icons.THUNDERSTORM);
+  });
+
+  test('should return generic weather icon for unknown conditions', () => {
+    expect(getIconForWeatherCode(-1)).toBe(icons.WEATHER_GENERIC);
+    expect(getIconForWeatherCode(999)).toBe(icons.WEATHER_GENERIC);
+    expect(getIconForWeatherCode(null)).toBe(icons.WEATHER_GENERIC);
+    expect(getIconForWeatherCode(undefined)).toBe(icons.WEATHER_GENERIC);
+  });
+});
