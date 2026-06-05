@@ -30,6 +30,11 @@ function getCurrentUVFromHourly(json, now) {
 
 function getWeatherFromCoords(pos) {
   console.log('getting that weather');
+  if (!pos || !pos.coords || pos.coords.latitude == null || pos.coords.longitude == null) {
+    console.log('Invalid coordinates provided.');
+    return;
+  }
+
   var lat = pos.coords.latitude;
   var lon = pos.coords.longitude;
 
