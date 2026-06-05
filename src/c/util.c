@@ -32,7 +32,7 @@ int time_get_beats(const struct tm *tm) {
 
   // how many seconds have passed since midnight?
   int seconds_since_midnight = bmt_tm->tm_hour * 3600 + bmt_tm->tm_min * 60 + bmt_tm->tm_sec;
-  int beats = (seconds_since_midnight * 1000) / 86400;
+  int beats = (seconds_since_midnight * 1000 + 43200) / 86400;
 
   return beats % 1000;
 }
