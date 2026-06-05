@@ -2,8 +2,7 @@
 var weather = require('./weather');
 
 var CONFIG_VERSION = 9;
-// var BASE_CONFIG_URL = 'https://localhost:3001/';
-var BASE_CONFIG_URL = 'https://freakified.github.io/TimeStylePebble/';
+var BASE_CONFIG_URL = (typeof process !== 'undefined' && process.env && process.env.BASE_CONFIG_URL) ? process.env.BASE_CONFIG_URL : 'https://freakified.github.io/TimeStylePebble/';
 
 // Listen for when the watchface is opened
 Pebble.addEventListener('ready',
