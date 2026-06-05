@@ -10,14 +10,17 @@ Pebble.addEventListener('ready',
   function (e) {
     console.log('JS component is now READY');
 
+    var disableWeather = window.localStorage.getItem('disable_weather');
+
     // if it has never been started, set the weather to enabled
-    if (window.localStorage.getItem('disable_weather') === null) {
-      window.localStorage.setItem('disable_weather', 'no');
+    if (disableWeather === null) {
+      disableWeather = 'no';
+      window.localStorage.setItem('disable_weather', disableWeather);
     }
 
-    console.log('the wdisabled value is: "' + window.localStorage.getItem('disable_weather') + '"');
+    console.log('the wdisabled value is: "' + disableWeather + '"');
     // if applicable, get the weather data
-    if (window.localStorage.getItem('disable_weather') != 'yes') {
+    if (disableWeather != 'yes') {
       weather.updateWeather();
     }
   }
