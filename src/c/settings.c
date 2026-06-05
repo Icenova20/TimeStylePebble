@@ -80,7 +80,6 @@ void Settings_saveToStorage() {
   // We're limited to 256 bytes, so make sure that settings fits
   _Static_assert(sizeof(Settings) <= PERSIST_DATA_MAX_LENGTH,
                  "Warning: settings struct is too large!");
-  // APP_LOG(APP_LOG_LEVEL_DEBUG, "Current settings size %d", sizeof(settings));
 
   // Write the data
   persist_write_data(SETTINGS_PERSIST_KEY, &settings, sizeof(settings));
