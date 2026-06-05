@@ -26,7 +26,6 @@ void messaging_init(void (*processed_callback)(void)) {
   // Open AppMessage
   app_message_open(512, 8);
 
-  // APP_LOG(APP_LOG_LEVEL_DEBUG, "Watch messaging is started!");
   app_message_register_inbox_received(inbox_received_callback);
 }
 
@@ -208,14 +207,11 @@ void inbox_received_callback(DictionaryIterator *iterator, void *context) {
 }
 
 void inbox_dropped_callback(AppMessageResult reason, void *context) {
-  // APP_LOG(APP_LOG_LEVEL_ERROR, "Message dropped!");
 }
 
 void outbox_failed_callback(DictionaryIterator *iterator, AppMessageResult reason, void *context) {
-  // APP_LOG(APP_LOG_LEVEL_ERROR, "Outbox send failed! %d %d %d", reason, APP_MSG_SEND_TIMEOUT, APP_MSG_SEND_REJECTED);
 
 }
 
 void outbox_sent_callback(DictionaryIterator *iterator, void *context) {
-  // APP_LOG(APP_LOG_LEVEL_INFO, "Outbox send success!");
 }
