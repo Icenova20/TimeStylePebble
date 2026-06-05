@@ -41,3 +41,58 @@ describe('getCurrentUVFromHourly', () => {
     expect(result).toBe(1); // Math.round(1.2)
   });
 });
+
+describe('getWeatherFromCoords', () => {
+  const { getWeatherFromCoords } = require('./weather_openmeteo');
+
+  let consoleLogSpy;
+
+  beforeEach(() => {
+    // Suppress console.log statements from tests to keep output clean
+    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleLogSpy.mockRestore();
+  });
+
+  test('should not throw when pos is undefined', () => {
+    expect(() => getWeatherFromCoords()).not.toThrow();
+  });
+
+  test('should not throw when pos is null', () => {
+    expect(() => getWeatherFromCoords(null)).not.toThrow();
+  });
+
+  test('should not throw when pos.coords is missing', () => {
+    expect(() => getWeatherFromCoords({})).not.toThrow();
+  });
+
+  test('should not throw when pos.coords is null', () => {
+    expect(() => getWeatherFromCoords({ coords: null })).not.toThrow();
+  });
+
+  test('should not throw when latitude or longitude is null', () => {
+    expect(() => getWeatherFromCoords({ coords: { latitude: null, longitude: 10 } })).not.toThrow();
+    expect(() => getWeatherFromCoords({ coords: { latitude: 10, longitude: null } })).not.toThrow();
+  });
+
+  test('should log "Invalid coordinates provided." when coordinates are invalid', () => {
+    getWeatherFromCoords(null);
+    expect(consoleLogSpy).toHaveBeenCalledWith('Invalid coordinates provided.');
+  });
+
+  test('should call weatherCommon.xhrRequest when valid coordinates are provided', () => {
+    const weatherCommon = require('./weather');
+    const xhrRequestSpy = jest.spyOn(weatherCommon, 'xhrRequest').mockImplementation(() => {});
+
+    getWeatherFromCoords({ coords: { latitude: 40.7128, longitude: -74.0060 } });
+
+    expect(xhrRequestSpy).toHaveBeenCalledTimes(1);
+    const expectedUrlPart = 'latitude=40.7128&longitude=-74.006';
+    expect(xhrRequestSpy.mock.calls[0][0]).toContain(expectedUrlPart);
+    expect(xhrRequestSpy.mock.calls[0][1]).toBe('GET');
+
+    xhrRequestSpy.mockRestore();
+  });
+});
