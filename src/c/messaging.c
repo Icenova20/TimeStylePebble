@@ -177,6 +177,7 @@ void inbox_received_callback(DictionaryIterator *iterator, void *context) {
 
   if(altclockName_tuple != NULL) {
     strncpy(settings.altclockName, altclockName_tuple->value->cstring, sizeof(settings.altclockName));
+    settings.altclockName[sizeof(settings.altclockName) - 1] = '\0';
   }
 
   if(altclockOffset_tuple != NULL) {
