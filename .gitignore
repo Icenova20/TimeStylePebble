@@ -45,3 +45,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+test/*.o
+test/test_settings
