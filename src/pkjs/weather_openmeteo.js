@@ -2,6 +2,7 @@ var weatherCommon = require('./weather');
 
 module.exports.getWeatherFromCoords = getWeatherFromCoords;
 module.exports.getCurrentUVFromHourly = getCurrentUVFromHourly;
+module.exports.getIconForWeatherCode = getIconForWeatherCode;
 
 function getCurrentUVFromHourly(json, now) {
   now = now || new Date();
