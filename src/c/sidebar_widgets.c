@@ -416,7 +416,6 @@ int mod(int a, int b) {
 }
 
 void SidebarWidgets_updateTime(struct tm *timeInfo) {
-  // printf("Current RAM: %d", heap_bytes_free());
 
   // set all the date strings
   strftime(currentDayNum, 3, "%e", timeInfo);
