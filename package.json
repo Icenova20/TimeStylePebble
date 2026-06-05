@@ -461,5 +461,8 @@
   },
   "devDependencies": {
     "pebble-fctx-compiler": "^1.2.2"
+  },
+  "scripts": {
+    "test": "cd test && make && ./test_settings"
   }
 }
