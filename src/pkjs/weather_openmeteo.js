@@ -1,6 +1,32 @@
 var weatherCommon = require('./weather');
 
 module.exports.getWeatherFromCoords = getWeatherFromCoords;
+module.exports.getCurrentUVFromHourly = getCurrentUVFromHourly;
+
+function getCurrentUVFromHourly(json, now) {
+  now = now || new Date();
+  var times = json.hourly.time;
+  var uvValues = json.hourly.uv_index;
+
+  var closestIndex = 0;
+  var smallestDiff = Infinity;
+
+  var nowTime = now.getTime();
+
+  for (var i = 0; i < times.length; i++) {
+    var t = Date.parse(times[i]);
+    var diff = Math.abs(t - nowTime);
+    if (diff < smallestDiff) {
+      smallestDiff = diff;
+      closestIndex = i;
+    } else if (diff > smallestDiff) {
+      // Since times are sequential, once the difference starts increasing,
+      // we have passed the closest time and can break early.
+      break;
+    }
+  }
+  return Math.round(uvValues[closestIndex]);
+}
 
 function getWeatherFromCoords(pos) {
   console.log('getting that weather');
@@ -37,29 +63,6 @@ function getAndSendWeather(url) {
     var forecastHigh = Math.round(json.daily.temperature_2m_max[0]);
     var forecastLow = Math.round(json.daily.temperature_2m_min[0]);
     var forecastCode = json.daily.weathercode[0];
-
-    function getCurrentUVFromHourly(json) {
-      var now = Date.now();
-      var times = json.hourly.time;
-      var uvValues = json.hourly.uv_index;
-
-      var closestIndex = 0;
-      var smallestDiff = Infinity;
-
-      for (var i = 0; i < times.length; i++) {
-        var t = Date.parse(times[i]);
-        var diff = Math.abs(t - now);
-        if (diff < smallestDiff) {
-          smallestDiff = diff;
-          closestIndex = i;
-        } else if (diff > smallestDiff) {
-          // Since times are sequential, once the difference starts increasing,
-          // we have passed the closest time and can break early.
-          break;
-        }
-      }
-      return Math.round(uvValues[closestIndex]);
-    }
 
     var uvIndex = getCurrentUVFromHourly(json);
 
