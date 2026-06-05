@@ -39,7 +39,7 @@ function getAndSendWeather(url) {
     var forecastCode = json.daily.weathercode[0];
 
     function getCurrentUVFromHourly(json) {
-      var now = new Date();
+      var now = Date.now();
       var times = json.hourly.time;
       var uvValues = json.hourly.uv_index;
 
@@ -47,11 +47,15 @@ function getAndSendWeather(url) {
       var smallestDiff = Infinity;
 
       for (var i = 0; i < times.length; i++) {
-        var t = new Date(times[i]);
+        var t = Date.parse(times[i]);
         var diff = Math.abs(t - now);
         if (diff < smallestDiff) {
           smallestDiff = diff;
           closestIndex = i;
+        } else if (diff > smallestDiff) {
+          // Since times are sequential, once the difference starts increasing,
+          // we have passed the closest time and can break early.
+          break;
         }
       }
       return Math.round(uvValues[closestIndex]);
