@@ -47,23 +47,12 @@ void Settings_loadFromStorage() {
   settings.decimalSeparator = '.';
   settings.showBatteryPct = true;
 
-  // to correct settings migration bug (settings key v6), we must do another
-  // migration (nooooooooooo)
+
   if (persist_exists(SETTINGS_PERSIST_KEY)) {
-    int version = 0;
-
     if (persist_exists(SETTINGS_VERSION_PERSIST_KEY)) {
-      version = persist_read_int(SETTINGS_VERSION_PERSIST_KEY);
+      int version = persist_read_int(SETTINGS_VERSION_PERSIST_KEY);
 
-      if (version < CURRENT_SETTINGS_VERSION) {
-        // v6 settings: load via memcpy
-        LegacyStoredSettings s;
-        persist_read_data(SETTINGS_PERSIST_KEY, &s, sizeof(s));
-        memcpy(&settings, &s, sizeof(LegacyStoredSettings));
-
-        // re-save in new v7 format
-        Settings_saveToStorage();
-      } else {
+      if (version >= CURRENT_SETTINGS_VERSION) {
         // v7 settings: load directly via single persist read
         persist_read_data(SETTINGS_PERSIST_KEY, &settings, sizeof(settings));
         settings.altclockName[sizeof(settings.altclockName) - 1] = '\0';
