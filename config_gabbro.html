@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TimeStyle Settings</title>
+  <link rel="stylesheet" href="lib/bootstrap-3.4.1.min.css">
+  <link rel="stylesheet" href="lib/spectrum/spectrum.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+
+
+
+<body style="padding: 70px 0;">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div id="toolbar_nochanges" class="container">
+      <button type="button" id="close_button" class="btn navbar-btn pull-right">Cancel</button>
+      <p class="navbar-text">TimeStyle Settings</p>
+    </div>
+    <div id="toolbar_haschanges" class="container hidden">
+      <button type="button" id="save_button" class="btn btn-primary navbar-btn pull-right" style="margin-left: 5px">Save</button>
+      <button type="button" id="reset_button" class="btn navbar-btn pull-right">Reset changes</button>
+      <p id="number_of_changes" class="navbar-text"></p>
+    </div>
+</nav>
+
+
+<div class="container">
+  <div id="version_warning" class="alert alert-warning hidden" role="alert">
+  You seem to have an older version of TimeStyle installed, so some
+  settings might not work. (To upgrade immediately, you can
+  try uninstalling and reinstalling the watchface.)
+</div>
+
+
+<form>
+  <label>Colors</label>
+
+<ul id="ColorSelectorTabs" class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#tab_presetcolors" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><span aria-hidden="true">⭐️</span> Presets</a></li>
+  <li role="presentation"><a href="#tab_customcolors" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><span aria-hidden="true">✏️</span> Customize</a></li>
+</ul>
+<div id="ColorSelectorTabContent" class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="tab_presetcolors" aria-labelledBy="home-tab">
+    <div class="form-group">
+      <div id="preset_selector" data-toggle="buttons">
+        <div id="custom_theme_area">
+          <p>Your saved themes</p>
+        </div>
+        <div id="saved_themes_area">
+
+        </div>
+        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#loadThemeModal">
+          Load shared theme
+        </button>
+      <div id="presets_scroller_outer">
+        <div id="presets_scroller_inner">
+        <div class="presets_group">
+          <p>Neon</p>
+          <label class="btn btn-default" data-time-color="#ff5500" data-time-bg-color="#000000" data-sidebar-color="#ff5500">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <div class="example_face" style="color: #ff5500; background-color: #000000; border-color: #ff5500;">6<br>32</div>
+            Orange Dreams
+          </label>
+
+          <label class="btn btn-default" data-time-color="#00ffff" data-time-bg-color="#000000" data-sidebar-color="#00ffff" data-sidebar-text-color="#000000">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <div class="example_face" style="color: rgb(132, 245, 241); border-color: rgb(132, 245, 241); background-color: rgb(0, 0, 0);">6<br>32</div>
+            Blue Screen
+          </label>
+
+          <label class="btn btn-default" data-time-color="#00ff00" data-time-bg-color="#000000" data-sidebar-color="#00ff00">
+            <input type="radio" name="options" id="option3" autocomplete="off">
+            <div class="example_face" style="border-color: #00ff00; color: #00ff00;">6<br>32</div>
+            Terminal Green
+          </label>
+
+          <label class="btn btn-default" data-time-color="#aa00ff" data-time-bg-color="#000000" data-sidebar-color="#aa00ff">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <div class="example_face" style="border-color: #aa00ff; color: #aa00ff;">6<br>32</div>
+            Ultra Violet
+          </label>
+
+          <label class="btn btn-default" data-time-color="#ff00aa" data-time-bg-color="#000000" data-sidebar-color="#ff00aa"> <input type="radio" name="options" id="option2" autocomplete="off">
+            <div class="example_face" style="border-color: #ff00aa; color: #ff00aa;">6<br>32</div>
+            Pretty in Pink
+          </label>
+
+          <label class="btn btn-default" data-time-color="#ff0000" data-time-bg-color="#000000" data-sidebar-color="#ff0000">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <div class="example_face" style="border-color: #ff0000; color: #ff0000;">6<br>32</div>
+            Red Velvet
+          </label>
+
+        </div>
+
+        <div class="presets_group">
+          <p>Contrast</p>
+          <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffffff" data-sidebar-color="#ffaa00">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <div class="example_face light_bg" style="border-color: #ffaa00">6<br>32</div>
+            Timeline-Past
+          </label>
+
+          <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffffff" data-sidebar-color="#00aaff">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <div class="example_face light_bg" style="border-color: #00aaff">6<br>32</div>
+            Timeline-Future
+          </label>
+
+          <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#000000" data-sidebar-color="#ffaa00">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <div class="example_face" style="color: #ffffff; border-color: #ffaa00">6<br>32</div>
+            Dark Past
+          </label>
+
+          <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#000000" data-sidebar-color="#00aaff">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <div class="example_face" style="color: #ffffff; border-color: #00aaff">6<br>32</div>
+            Dark Future
+          </label>
+
+          <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffffff" data-sidebar-color="#00ff00">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <div class="example_face " style="color: #000000; background: #ffffff; border-color: #00ff00;">6<br>32</div>
+            Lime
+          </label>
+          <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffffff" data-sidebar-color="#aa0000" data-sidebar-text-color="#ffffff">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <div class="example_face" style="color: rgb(0, 0, 0); border-color: rgb(153, 53, 63); background-color: rgb(255, 255, 255);">6<br>32</div>
+            Sangria
+          </label>
+        </div>
+
+      <div class="presets_group">
+       <p>Dark</p>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#555555" data-sidebar-color="#aaaaaa">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face" style="background: #555555; color: white; border-color: #aaaaaa;">6<br>32</div>
+          Shades of Grey
+        </label>
+
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#0000aa" data-sidebar-color="#0055ff" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face" style="background: #0000aa; color: #ffffff; border-color: #0055ff;">6<br>32</div>
+          Deep Blue
+        </label>
+
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#005500" data-sidebar-color="#55aa55">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face" style="background: #005500; color: #ffffff; border-color: #55aa55;">6<br>32</div>
+          Evergreen
+        </label>
+
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#ff0000" data-sidebar-color="#aa0000" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(153, 53, 63); background-color: rgb(227, 84, 98);">6<br>32</div>
+          Cabernet
+        </label>
+
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#5500ff" data-sidebar-color="#ffff00">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face " style="background: #5500ff; color: #ffffff; border-color: #ffff00;">6<br>32</div>
+          Complementary
+        </label>
+
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#550000" data-sidebar-color="#ff5500">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face " style="background: #550000; color: #ffffff; border-color: #ff5500;">6<br>32</div>
+          Autumn
+        </label>
+      </div>
+
+      <div class="presets_group">
+        <p>Solid</p>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#ff0000" data-sidebar-color="#ffffff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background-color: rgb(227, 84, 98);">6<br>32</div>
+          Flame
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#0000aa" data-sidebar-color="#ffffff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background-color: rgb(0, 67, 135);">6<br>32</div>
+          Plain Blue
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#005500" data-sidebar-color="#ffffff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background-color: rgb(43, 74, 44);">6<br>32</div>
+          Emerald
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#5500aa" data-sidebar-color="#ffffff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background-color: rgb(64, 72, 138);">6<br>32</div>
+          Indigo
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#ff00aa" data-sidebar-color="#ffffff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background-color: rgb(225, 106, 163);">6<br>32</div>
+          Quartz
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#aa0055" data-sidebar-color="#ffffff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(255, 255, 255); background-color: rgb(152, 62, 90);">6<br>32</div>
+          Merlot
+        </label>
+      </div>
+
+      <div class="presets_group">
+        <p>Pastel</p>
+
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#55aaff" data-sidebar-color="#0055aa">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face" style="background: #55aaff; color: #000000; border-color: #0055aa;">6<br>32</div>
+          Into the Deep
+        </label>
+
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffff00" data-sidebar-color="#aaaa00">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face light_bg" style="background-color: #ffff00; border-color: #aaaa00;">6<br>32</div>
+          Chardonnay
+        </label>
+
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#00ff00" data-sidebar-color="#00aa00">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face" style="background: #00ff00; color: #000000; border-color: #00aa00;">6<br>32</div>
+          Tree of Time
+          </label>
+
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffaaff" data-sidebar-color="#ff55aa">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face light_bg" style="background-color: #ffaaff; border-color: #ff55aa;">6<br>32</div>
+          Rosé
+        </label>
+
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffaa00" data-sidebar-color="#ff5500" data-sidebar-text-color="#550000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(0, 0, 0); border-color: rgb(230, 110, 107); background-color: rgb(241, 170, 134);">6<br>32</div>
+          Sunset
+        </label>
+
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#aaaaff" data-sidebar-color="#5555ff">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face" style="background: #aaaaff; color: #000000; border-color: #5555ff;">6<br>32</div>
+          Twilight
+        </label>
+      </div>
+      <div class="presets_group">
+       <p>User Submissions</p>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#0000aa" data-sidebar-color="#aa0000" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face " style="color: #ffffff; background: #0000aa; border-color: #aa0000;">6<br>32</div>
+          Washington
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#000055" data-sidebar-color="#ffaa00" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(241, 170, 134); background-color: rgb(0, 30, 65);">6<br>32</div>
+          Highway
+        </label>
+        <label class="btn btn-default" data-time-color="#ffaa55" data-time-bg-color="#000000" data-sidebar-color="#5555ff" data-sidebar-text-color="#000000">
+           <input type="radio" name="options" id="option1" autocomplete="off">
+           <div class="example_face" style="color: rgb(241, 173, 147); border-color: rgb(65, 128, 208); background-color: rgb(0, 0, 0);">6<br>32</div>
+           Dashboard
+         </label>
+        <label class="btn btn-default" data-time-color="#aaffff" data-time-bg-color="#000055" data-sidebar-color="#5555ff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+           <div class="example_face" style="color: rgb(195, 249, 247); border-color: rgb(65, 128, 208); background-color: rgb(0, 30, 65);">6<br>32</div>
+          Underwater
+        </label>
+        <label class="btn btn-default" data-time-color="#00ff00" data-time-bg-color="#0000aa" data-sidebar-color="#00ff00" data-sidebar-text-color="#0055aa">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <div class="example_face" style="color: rgb(142, 227, 145); border-color: rgb(142, 227, 145); background-color: rgb(0, 67, 135);">6<br>32</div>
+            Algae
+        </label>
+        <label class="btn btn-default" data-time-color="#00ff00" data-time-bg-color="#0000ff" data-sidebar-color="#ff00ff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(142, 227, 145); border-color: rgb(222, 131, 220); background-color: rgb(0, 104, 202);">6<br>32</div>
+          Wetland
+        </label>
+      </div>
+      <div class="presets_group">
+       <p>&nbsp;</p>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#555500" data-sidebar-color="#aaaaaa">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face " style="color: #ffffff; background: #555500; border-color: #aaaaaa;">6<br>32</div>
+          Leather
+        </label>
+        <label class="btn btn-default" data-time-color="#ffaaaa" data-time-bg-color="#550000" data-sidebar-color="#ffaaaa" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(239, 181, 184); border-color: rgb(239, 181, 184); background-color: rgb(74, 22, 27);">6<br>32</div>
+          Salmon
+        </label>
+        <label class="btn btn-default" data-time-color="#aaffaa" data-time-bg-color="#005500" data-sidebar-color="#aaffaa" data-sidebar-text-color="#000000">
+           <input type="radio" name="options" id="option1" autocomplete="off">
+           <div class="example_face" style="color: rgb(199, 240, 200); border-color: rgb(199, 240, 200); background-color: rgb(43, 74, 44);">6<br>32</div>
+          Clover
+        </label>
+        <label class="btn btn-default" data-time-color="#ffff00" data-time-bg-color="#ff0000" data-sidebar-color="#00aa00" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <div class="example_face " style="color: #ffff00; background: #ff0000; border-color: #00aa00;">6<br>32</div>
+          Reggae
+        </label>
+        <label class="btn btn-default" data-time-color="#ffff00" data-time-bg-color="#aa0000" data-sidebar-color="#ffff00" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 238, 171); border-color: rgb(255, 238, 171); background-color: rgb(153, 53, 63);">6<br>32</div>
+          Gold Steel
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#0000ff" data-sidebar-color="#ff5500" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(230, 110, 107); background-color: rgb(0, 104, 202);">6<br>32</div>
+          Unconcerned
+        </label>
+      </div>
+      <div class="presets_group">
+       <p>&nbsp;</p>
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#00aa00" data-sidebar-color="#0055aa" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(0, 0, 0); border-color: rgb(22, 99, 141); background-color: rgb(94, 152, 96);">6<br>32</div>
+          Meadow
+        </label>
+        <label class="btn btn-default" data-time-color="#ff0000" data-time-bg-color="#ffffff" data-sidebar-color="#0000ff" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(227, 84, 98); border-color: rgb(0, 104, 202); background-color: rgb(255, 255, 255);">6<br>32</div>
+          Flight
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#00aa00" data-sidebar-color="#ffaa00" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(241, 170, 134); background-color: rgb(94, 152, 96);">6<br>32</div>
+          Country
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#550055" data-sidebar-color="#aa55ff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: #ffffff; border-color: rgb(149, 135, 213); background-color: rgb(72, 39, 72);">6<br>32</div>
+          Grape
+        </label>
+        <label class="btn btn-default" data-time-color="#5500aa" data-time-bg-color="#ffaa00" data-sidebar-color="#5500aa" data-sidebar-text-color="#ffaa00">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(64, 72, 138); border-color: rgb(64, 72, 138); background-color: rgb(241, 170, 134);">6<br>32</div>
+          Mascot
+        </label>
+        <label class="btn btn-default" data-time-color="#ff5500" data-time-bg-color="#000055" data-sidebar-color="#ffff00" data-sidebar-text-color="#000055">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(230, 110, 107); border-color: rgb(255, 238, 171); background-color: rgb(0, 30, 65);">6<br>32</div>
+          Aeon
+        </label>
+      </div>
+      <div class="presets_group">
+       <p>&nbsp;</p>
+       <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#000000" data-sidebar-color="#ff0000" data-sidebar-text-color="#ffffff">
+         <input type="radio" name="options" id="option1" autocomplete="off">
+         <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(227, 84, 98); background-color: rgb(0, 0, 0);">6<br>32</div>
+         Stripe
+       </label>
+        <label class="btn btn-default" data-time-color="#aaaaaa" data-time-bg-color="#000000" data-sidebar-color="#aaaaaa" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(171, 171, 171); border-color: rgb(171, 171, 171); background-color: rgb(0, 0, 0);">6<br>32</div>
+          Gray Skies
+        </label>
+        <label class="btn btn-default" data-time-color="#00ff00" data-time-bg-color="#550000" data-sidebar-color="#00ffff" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(142, 227, 145); border-color: rgb(132, 245, 241); background-color: rgb(74, 22, 27);">6<br>32</div>
+          Allure
+        </label>
+        <label class="btn btn-default" data-time-color="#ffff00" data-time-bg-color="#000000" data-sidebar-color="#ffff00" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 238, 171); border-color: rgb(255, 238, 171); background-color: rgb(0, 0, 0);">6<br>32</div>
+          Brass
+        </label>
+        <label class="btn btn-default" data-time-color="#0000ff" data-time-bg-color="#00ffff" data-sidebar-color="#00ffff" data-sidebar-text-color="#0000ff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(0, 104, 202); border-color: rgb(132, 245, 241); background-color: rgb(132, 245, 241);">6<br>32</div>
+          Sky
+        </label>
+        <label class="btn btn-default" data-time-color="#aaaa55" data-time-bg-color="#000000" data-sidebar-color="#aaaa55" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(174, 163, 130); border-color: rgb(174, 163, 130); background-color: rgb(0, 0, 0);">6<br>32</div>
+          Antique
+        </label>
+      </div>
+      <div class="presets_group">
+       <p>&nbsp;</p>
+       <label class="btn btn-default" data-time-color="#00ff00" data-time-bg-color="#000000" data-sidebar-color="#0000ff" data-sidebar-text-color="#aaff00">
+         <input type="radio" name="options" id="option1" autocomplete="off">
+         <div class="example_face" style="color: rgb(142, 227, 145); border-color: rgb(0, 104, 202); background-color: rgb(0, 0, 0);">6<br>32</div>
+         BlueGreen
+       </label>
+       <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffffff" data-sidebar-color="#0000aa" data-sidebar-text-color="#ffffff">
+         <input type="radio" name="options" id="option1" autocomplete="off">
+         <div class="example_face" style="color: rgb(0, 0, 0); border-color: rgb(0, 67, 135); background-color: rgb(255, 255, 255);">6<br>32</div>
+         Time Machine
+       </label>
+       <label class="btn btn-default" data-time-color="#00ff00" data-time-bg-color="#000055" data-sidebar-color="#aaffaa" data-sidebar-text-color="#000055">
+         <input type="radio" name="options" id="option1" autocomplete="off">
+         <div class="example_face" style="color: rgb(142, 227, 145); border-color: rgb(199, 240, 200); background-color: rgb(0, 30, 65);">6<br>32</div>
+         Phthalo
+       </label>
+       <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#aa0000" data-sidebar-color="#00aa00" data-sidebar-text-color="#000000">
+         <input type="radio" name="options" id="option1" autocomplete="off">
+         <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(94, 152, 96); background-color: rgb(153, 53, 63);">6<br>32</div>
+         Xmas
+       </label>
+       <label class="btn btn-default" data-time-color="#ffff00" data-time-bg-color="#0000aa" data-sidebar-color="#ffff00" data-sidebar-text-color="#0000aa">
+         <input type="radio" name="options" id="option1" autocomplete="off">
+         <div class="example_face" style="color: rgb(255, 238, 171); border-color: rgb(255, 238, 171); background-color: rgb(0, 67, 135);">6<br>32</div>
+         Parra
+       </label>
+       <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#ff0000" data-sidebar-color="#555555" data-sidebar-text-color="#ffffff">
+         <input type="radio" name="options" id="option1" autocomplete="off">
+         <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(84, 84, 84); background-color: rgb(227, 84, 98);">6<br>32</div>
+         Red Steel
+       </label>
+     </div>
+     <div class="presets_group">
+       <p>&nbsp;</p>
+         <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ffaa00" data-sidebar-color="#000000" data-sidebar-text-color="#ffaa00">
+           <input type="radio" name="options" id="option1" autocomplete="off">
+             <div class="example_face" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0); background-color: rgb(241, 170, 134);">6<br>32</div>
+          Amber
+         </label>
+         <label class="btn btn-default" data-time-color="#55aa00" data-time-bg-color="#000000" data-sidebar-color="#000000" data-sidebar-text-color="#55ffff">
+           <input type="radio" name="options" id="option1" autocomplete="off">
+           <div class="example_face" style="color: rgb(117, 154, 100); border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0);">6<br>32</div>
+           HUD
+         </label>
+         <label class="btn btn-default" data-time-color="#ff0000" data-time-bg-color="#000000" data-sidebar-color="#000000" data-sidebar-text-color="#ff0000">
+             <input type="radio" name="options" id="option1" autocomplete="off">
+               <div class="example_face" style="color: rgb(227, 84, 98); border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0);">6<br>32</div>
+           Night Vision
+         </label>
+         <label class="btn btn-default" data-time-color="#aa00ff" data-time-bg-color="#ffaaff" data-sidebar-color="#ffffaa" data-sidebar-text-color="#000000">
+           <input type="radio" name="options" id="option1" autocomplete="off">
+             <div class="example_face" style="color: rgb(143, 116, 210); border-color: rgb(255, 246, 211); background-color: rgb(236, 195, 235);">6<br>32</div>
+             Champagne
+           </label>
+           <label class="btn btn-default" data-time-color="#0055ff" data-time-bg-color="#000000" data-sidebar-color="#0055ff" data-sidebar-text-color="#000000">
+               <input type="radio" name="options" id="option1" autocomplete="off">
+               <div class="example_face" style="color: rgb(0, 125, 206); border-color: rgb(0, 125, 206); background-color: rgb(0, 0, 0);">6<br>32</div>
+               Blue Line
+             </label>
+             <label class="btn btn-default" data-time-color="#ffaa55" data-time-bg-color="#0055ff" data-sidebar-color="#ff5555" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(241, 173, 147); border-color: rgb(230, 114, 124); background-color: rgb(0, 125, 206);">6<br>32</div>
+          Cotton Candy
+        </label>
+      </div>
+      <div class="presets_group">
+        <p>&nbsp;</p>
+        <label class="btn btn-default" data-time-color="#555500" data-time-bg-color="#ffffaa" data-sidebar-color="#555500" data-sidebar-text-color="#ffffaa">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(86, 78, 54); border-color: rgb(86, 78, 54); background-color: rgb(255, 246, 211);">6<br>32</div>
+          Sepia
+        </label>
+        <label class="btn btn-default" data-time-color="#00ffff" data-time-bg-color="#0000ff" data-sidebar-color="#00ffff" data-sidebar-text-color="#0000ff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(132, 245, 241); border-color: rgb(132, 245, 241); background-color: rgb(0, 104, 202);">6<br>32</div>
+          Meghamin
+        </label>
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#ff0055" data-sidebar-color="#00aa00" data-sidebar-text-color="#000000">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(0, 0, 0); border-color: rgb(94, 152, 96); background-color: rgb(226, 88, 116);">6<br>32</div>
+          Watermelon
+        </label>
+        <label class="btn btn-default" data-time-color="#000000" data-time-bg-color="#aaff00" data-sidebar-color="#5500aa" data-sidebar-text-color="#aaff00">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(0, 0, 0); border-color: rgb(64, 72, 138); background-color: rgb(201, 232, 157);">6<br>32</div>
+          Crash
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#ff0000" data-sidebar-color="#ff0000" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(227, 84, 98); background-color: rgb(227, 84, 98);">6<br>32</div>
+          Red Plastic
+        </label>
+        <label class="btn btn-default" data-time-color="#000055" data-time-bg-color="#ffffff" data-sidebar-color="#00aa55" data-sidebar-text-color="#000000">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+              <div class="example_face" style="color: rgb(0, 30, 65); border-color: rgb(92, 155, 114); background-color: rgb(255, 255, 255);">6<br>32</div>
+              Greenstripe
+        </label>
+      </div>
+      <div class="presets_group">
+        <p>&nbsp;</p>
+        <label class="btn btn-default" data-time-color="#0000aa" data-time-bg-color="#55aaff" data-sidebar-color="#0000aa" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(0, 67, 135); border-color: rgb(0, 67, 135); background-color: rgb(105, 181, 221);">6<br>32</div>
+          True Blue
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffff" data-time-bg-color="#000000" data-sidebar-color="#0000ff" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 255, 255); border-color: rgb(0, 104, 202); background-color: rgb(0, 0, 0);">6<br>32</div>
+          Command
+        </label>
+        <label class="btn btn-default" data-time-color="#ffffaa" data-time-bg-color="#555555" data-sidebar-color="#ffffaa" data-sidebar-text-color="#555555">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(255, 246, 211); border-color: rgb(255, 246, 211); background-color: rgb(84, 84, 84);">6<br>32</div>
+          Silver &amp; Gold
+        </label>
+        <label class="btn btn-default" data-time-color="#ff0000" data-time-bg-color="#5500aa" data-sidebar-color="#00aa00" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(227, 84, 98); border-color: rgb(94, 152, 96); background-color: rgb(64, 72, 138);">6<br>32</div>
+          Jester
+        </label>
+        <label class="btn btn-default" data-time-color="#ff0000" data-time-bg-color="#ffff00" data-sidebar-color="#555500" data-sidebar-text-color="#ffffff">
+          <input type="radio" name="options" id="option1" autocomplete="off">
+          <div class="example_face" style="color: rgb(227, 84, 98); border-color: rgb(86, 78, 54); background-color: rgb(255, 238, 171);">6<br>32</div>
+          Pika Stripe
+        </label>
+      </div>
+
+      </div> <!-- #presets_scroller_inner -->
+    </div> <!-- #presets_scroller_outer -->
+
+      </div>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane fade" id="tab_customcolors" aria-labelledBy="profile-tab">
+    <div id="custom_preview_help" class="alert alert-info" role="alert">
+      Select the three required colors to create a theme
+    </div>
+    <div id="custom_preview_container">
+      <div id="custom_preview" class="example_face" style="margin: 13px">6<br>32</div>
+      <button class="btn btn-primary" id="saveNewPresetButton" type="button" onclick="saveNewPreset()">
+        Save theme
+      </button>
+      <button class="btn btn-success" style="display:none" id="savedIndication" type="button">
+        Saved!
+      </button>
+
+    </div>
+
+    <div>
+  </div>
+
+    <label>Time Text Color</label>
+    <div class="form-group">
+      <input type='text' id="time-color" class="colorpicker"/>
+    </div>
+    <label>Time Background Color</label>
+    <div class="form-group">
+      <input type='text' id="time-bg-color" class="colorpicker"/>
+    </div>
+    <label>Sidebar Background Color</label>
+    <div class="form-group">
+      <input type='text' id="sidebar-color" class="colorpicker"/>
+    </div>
+    <label>Sidebar Text Color (not shown in preview)</label>
+    <div class="form-group">
+      <input type='text' id="sidebar-text-color" class="colorpicker"/>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="loadThemeModal" tabindex="-1" role="dialog" aria-labelledby="loadThemeModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Load a shared theme</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" id="pasted_theme" placeholder='Paste theme text here'>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="loadPastedTheme()" data-dismiss="modal">Load theme</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="shareThemeModal" tabindex="-1" role="dialog" aria-labelledby="shareThemeModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Share this theme</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <a id="share_via_email" class="btn btn-info" style="display: block; width: 100%; margin-bottom: 5px">Send as email</a>
+          <a id="suggest_as_preset" class="btn btn-default" style="display: block; width: 100%;">Suggest as a preset</a>
+        </p>
+
+        <p><small>Or, copy and paste the text below:</small><br>
+          <small id="sharable_theme">
+
+          </small></p>
+        <p></p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <hr>
+<label>Sidebar Widgets</label>
+<div id="sidebar_layout_section" class="round">
+  <div class="sidebar_preview_round col">
+    <div id="widget_0_preview" class="widget_preview">
+      <img src="images/sidebar_widgets/0-NONE.png" >
+    </div>
+    <div id="widget_2_preview" class="widget_preview">
+      <img src="images/sidebar_widgets/0-NONE.png" >
+    </div>
+  </div>
+  <!-- <img id="sidebar_preview_lines" src="images/lines.svg" height="155" /> -->
+  <div class="col">
+    <label class="subtle">Left Side</label>
+    <select class="form-control" id="widget_0_selector">
+      <optgroup label="None">
+<option value="0">Empty</option>
+</optgroup>
+<optgroup label="Time & Date">
+<option value="3">Alternate Time Zone</option>
+<option value="5">Seconds</option>
+<option value="11">Swatch™ Internet Time</option>
+<option value="4">Today's Date</option>
+<option value="6">Week Number</option>
+</optgroup>
+<optgroup label="Weather">
+<option value="7">Current Weather</option>
+<option value="8">Today's Forecast</option>
+<option value="13">UV Index</option>
+</optgroup>
+
+<optgroup label="Health">
+<option value="9">Sleep</option>
+<option value="10">Steps</option>
+
+
+</optgroup>
+<optgroup label="Status">
+<option value="2">Battery</option>
+</optgroup>
+
+
+
+    </select>
+    <br>
+    <label class="subtle">Right Side</label>
+    <select class="form-control" id="widget_2_selector">
+      <optgroup label="None">
+<option value="0">Empty</option>
+</optgroup>
+<optgroup label="Time & Date">
+<option value="3">Alternate Time Zone</option>
+<option value="5">Seconds</option>
+<option value="11">Swatch™ Internet Time</option>
+<option value="4">Today's Date</option>
+<option value="6">Week Number</option>
+</optgroup>
+<optgroup label="Weather">
+<option value="7">Current Weather</option>
+<option value="8">Today's Forecast</option>
+<option value="13">UV Index</option>
+</optgroup>
+
+<optgroup label="Health">
+<option value="9">Sleep</option>
+<option value="10">Steps</option>
+
+
+</optgroup>
+<optgroup label="Status">
+<option value="2">Battery</option>
+</optgroup>
+
+
+
+    </select>
+    <select class="form-control" style="display: none" id="widget_1_selector">
+      <optgroup label="None">
+<option value="0">Empty</option>
+</optgroup>
+<optgroup label="Time & Date">
+<option value="3">Alternate Time Zone</option>
+<option value="5">Seconds</option>
+<option value="11">Swatch™ Internet Time</option>
+<option value="4">Today's Date</option>
+<option value="6">Week Number</option>
+</optgroup>
+<optgroup label="Weather">
+<option value="7">Current Weather</option>
+<option value="8">Today's Forecast</option>
+<option value="13">UV Index</option>
+</optgroup>
+
+<optgroup label="Health">
+<option value="9">Sleep</option>
+<option value="10">Steps</option>
+
+
+</optgroup>
+<optgroup label="Status">
+<option value="2">Battery</option>
+</optgroup>
+
+
+
+    </select>
+  </div>
+</div>
+<hr>
+<label>Sidebar Display</label><br>
+<label class="subtle">Text Size</label>
+<div id="use_large_sidebar_font_setting" class="form-group" >
+  <div class="btn-group btn-group-justified"  data-toggle="buttons">
+    <label class="btn btn-default" data-setting="no" >
+      <input type="radio" name="options" autocomplete="off">
+      <img class="example_img" src="images/sidebar-preview-default.png" width="56" height="66">
+      Normal
+      </label>
+    <label class="btn btn-default" data-setting="yes" >
+      <input type="radio" name="options" autocomplete="off">
+      <img class="example_img" src="images/sidebar-preview-large.png" width="56" height="66">
+      Large
+      </label>
+  </div>
+</div>
+
+
+<hr>
+<div id="widget_steps_settings">
+  <label>Steps</label><br>
+  <label class="subtle">Display as</label>
+  <div id="health_use_distance" class="form-group" >
+    <div class="btn-group btn-group-justified"  data-toggle="buttons">
+      <label class="btn btn-default" data-setting="no" >
+        <input type="radio" name="options" autocomplete="off">Number of steps
+      </label>
+      <label class="btn btn-default" data-setting="yes" >
+        <input type="radio" name="options" autocomplete="off">Distance
+      </label>
+    </div>
+  </div>
+  <hr>
+</div>
+<div id="widget_sleep_settings">
+  <label>Sleep</label><br>
+  <label class="subtle">Which count should be used for the displayed sleep time?</label>
+  <div id="health_use_restful_sleep" class="form-group" >
+    <div class="btn-group btn-group-justified"  data-toggle="buttons">
+      <label class="btn btn-default" data-setting="no" >
+        <input type="radio" name="options" autocomplete="off">Total Sleep
+      </label>
+      <label class="btn btn-default" data-setting="yes" >
+        <input type="radio" name="options" autocomplete="off">"Restful" Sleep
+      </label>
+    </div>
+  </div>
+  <hr>
+</div>
+<div id="widget_battery_settings">
+  <label>Battery Meter</label>
+  <div id="autobattery_setting" class="form-group" >
+    <label class="subtle">Automatic Battery Notification</label>
+    <div class="btn-group btn-group-justified"  data-toggle="buttons">
+      <label class="btn btn-default" data-setting="on" >
+        <input type="radio" name="options" autocomplete="off">
+        Automatically show battery meter at 10%
+      </label>
+      <label class="btn btn-default" data-setting="off" >
+        <input type="radio" name="options" autocomplete="off">
+        Never show
+      </label>
+    </div>
+  </div>
+  <div id="battery_meter_setting" class="form-group" >
+    <label class="subtle">Style</label>
+    <div class="btn-group btn-group-justified"  data-toggle="buttons">
+      <label class="btn btn-default" data-setting="icon-and-percent" >
+        <input type="radio" name="options" autocomplete="off">
+        <img src="images/battery_meter_with_percent.png" width="30" height="30" ><br />
+        Icon &amp; percent
+      </label>
+      <label class="btn btn-default" data-setting="icon-only" >
+        <input type="radio" name="options" autocomplete="off">
+        <img src="images/battery_meter.png" width="30" height="30" ><br />
+        Icon only
+      </label>
+    </div>
+  </div>
+  <hr>
+</div>
+<div id="widget_weather_settings">
+  <label>Weather</label>
+  <br>
+  <label class="subtle">Location</label>
+  <div id="weather_setting" class="form-group" >
+  <div class="alert alert-info" role="alert">
+    Weather not updating? Setting your location manually often fixes weather issues.
+  </div>
+    <div class="btn-group btn-group-justified"  data-toggle="buttons">
+      <label class="btn btn-default" data-setting="auto" >
+        <input type="radio" name="options" autocomplete="off"> Automatic (GPS)
+      </label>
+      <label class="btn btn-default" data-setting="manual" >
+        <input type="radio" name="options" autocomplete="off" id="weather_setting_manual"> Manual
+      </label>
+    </div>
+    <div class="form_group collapse" id="manual_weather_loc_setting_area">
+      <input type="text" class="form-control" style="margin-top: 15px" id="weather_loc" placeholder='Type to search for a location...'>
+      <input type="hidden" id="weather_loc_lat">
+      <input type="hidden" id="weather_loc_lng">
+      <div id="weather_suggestions" class="list-group"></div>
+    </div>
+  </div>
+  <label class="subtle">Units</label>
+  <div id="units_setting" class="form-group" >
+    <div class="btn-group btn-group-justified"  data-toggle="buttons">
+      <label class="btn btn-default" data-setting="f" >
+        <input type="radio" name="options" autocomplete="off"> Fahrenheit
+      </label>
+      <label class="btn btn-default" data-setting="c" >
+        <input type="radio" name="options" autocomplete="off"> Celsius
+      </label>
+    </div>
+  </div>
+  <label class="subtle">Data Source</label>
+  <div id="weather_datasource_setting" class="form-group" >
+    <a class="weather_datasource_attribution" href="https://open-meteo.com/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="-mt-1" viewBox="0 0 16 16"><path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.502 3.502 0 0 1 7 8zm4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5h-.027z"/><path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/></svg>
+      <br />
+      Weather data by Open-Meteo.com
+    </a>
+  </div>
+  <hr>
+</div>
+<div id="widget_altclock_settings">
+  <label>Alternate Time Zone</label>
+  <br>
+  <div class="alert alert-info" role="alert">
+    Note: Daylight Saving Time is not applied automatically, so you may need to adjust the offset by one to get the correct time.
+  </div>
+  <label class="subtle">
+    Time Zone
+  </label>
+
+<select id="altclock_offset_hour" class="form-control">
+  <option data-setting="-12">UTC−12:00 (Baker Island)</option>
+  <option data-setting="-11">UTC−11:00 (American Samoa)</option>
+  <option data-setting="-10">UTC−10:00 (Hawaii, Tahiti)</option>
+  <!-- <option data-setting="-9.5">UTC−09:30 (Marquesas Islands)</option> -->
+  <option data-setting="-9">UTC−09:00 (Alaska)</option>
+  <option data-setting="-8">UTC−08:00 (Los Angeles, Vancouver)</option>
+  <option data-setting="-7">UTC−07:00 (Denver, Phoenix)</option>
+  <option data-setting="-6">UTC−06:00 (Chicago, Mexico City)</option>
+  <option data-setting="-5">UTC−05:00 (New York, Bogotá)</option>
+  <option data-setting="-4">UTC−04:00 (Santiago, Halifax)</option>
+  <!-- <option data-setting="-3.5">UTC−03:30 (Newfoundland)</option> -->
+  <option data-setting="-3">UTC−03:00 (Buenos Aires, Montevideo)</option>
+  <option data-setting="-2">UTC−02:00 (South Georgia)</option>
+  <option data-setting="-1">UTC−01:00 (Azores, Cape Verde)</option>
+  <option data-setting="0" selected>UTC±00:00 (London, Reykjavik)</option>
+  <option data-setting="1">UTC+01:00 (Berlin, Lagos, Paris)</option>
+  <option data-setting="2">UTC+02:00 (Cairo, Johannesburg)</option>
+  <option data-setting="3">UTC+03:00 (Moscow, Riyadh)</option>
+  <!-- <option data-setting="3.5">UTC+03:30 (Tehran)</option> -->
+  <option data-setting="4">UTC+04:00 (Dubai, Baku)</option>
+  <!-- <option data-setting="4.5">UTC+04:30 (Kabul)</option> -->
+  <option data-setting="5">UTC+05:00 (Karachi, Tashkent)</option>
+  <!-- <option data-setting="5.5">UTC+05:30 (Delhi, Colombo)</option> -->
+  <!-- <option data-setting="5.75">UTC+05:45 (Kathmandu)</option> -->
+  <option data-setting="6">UTC+06:00 (Dhaka, Almaty)</option>
+  <!-- <option data-setting="6.5">UTC+06:30 (Myanmar, Cocos Islands)</option> -->
+  <option data-setting="7">UTC+07:00 (Bangkok, Jakarta)</option>
+  <option data-setting="8">UTC+08:00 (Beijing, Perth, Singapore)</option>
+  <!-- <option data-setting="8.75">UTC+08:45 (Eucla, Australia)</option> -->
+  <option data-setting="9">UTC+09:00 (Tokyo, Seoul)</option>
+  <!-- <option data-setting="9.5">UTC+09:30 (Adelaide, Darwin)</option> -->
+  <option data-setting="10">UTC+10:00 (Sydney, Vladivostok)</option>
+  <!-- <option data-setting="10.5">UTC+10:30 (Lord Howe Island)</option> -->
+  <option data-setting="11">UTC+11:00 (Solomon Islands, Magadan)</option>
+  <option data-setting="12">UTC+12:00 (Auckland, Fiji)</option>
+  <!-- <option data-setting="12.75">UTC+12:45 (Chatham Islands)</option> -->
+  <option data-setting="13">UTC+13:00 (Tonga, Phoenix Islands)</option>
+  <option data-setting="14">UTC+14:00 (Kiritimati, Line Islands)</option>
+</select>
+  <br>
+  <label class="subtle">Display Name (Max 4 letters)</label>
+  <input type="text" value="ALT" class="form-control" id="altclock_name" maxlength="4" placeholder='e.g. "PDT, CET, or UTC"'>
+  <hr>
+</div>
+<label>Time Display</label><br>
+<div class="alert alert-info" role="alert">
+  To change between 12 hour and 24 hour mode, use the setting on your watch,
+  under Settings &rarr; Date &amp; Time.
+</div>
+<label class="subtle">Leading Zero</label>
+<div id="time_leading_zero_setting" class="form-group" >
+  <div class="btn-group btn-group-justified"  data-toggle="buttons">
+    <label class="btn btn-default" data-setting="no" >
+      <input type="radio" name="options" autocomplete="off">
+      <div class="example_face">6<br>32</div>
+      No leading zero
+    </label>
+    <label class="btn btn-default" data-setting="yes" >
+      <input type="radio" name="options" autocomplete="off">
+      <div class="example_face">06<br>32</div>
+      With leading zero
+    </label>
+  </div>
+</div>
+<label class="subtle">Font</label>
+<div id="clock_font_setting" class="form-group" >
+  <div data-toggle="buttons">
+    <label class="btn btn-default" data-setting="default" >
+      <input type="radio" name="options" autocomplete="off">
+      <img class="example_img" src="images/font-preview-default.png" width="56" height="66">
+      Default
+    </label>
+    <label class="btn btn-default" data-setting="bold" >
+      <input type="radio" name="options" autocomplete="off">
+      <img class="example_img" src="images/font-preview-bold.png" width="56" height="66">
+      Bold
+    </label>
+    <label class="btn btn-default" data-setting="bold-h" >
+      <input type="radio" name="options" autocomplete="off">
+      <img class="example_img" src="images/font-preview-bold-H.png" width="56" height="66">
+      Bold Hour
+    </label>
+    <label class="btn btn-default" data-setting="bold-m" >
+      <input type="radio" name="options" autocomplete="off">
+      <img class="example_img" src="images/font-preview-bold-M.png" width="56" height="66">
+      Bold Minute
+    </label>
+    <label class="btn btn-default" data-setting="leco" >
+      <input type="radio" name="options" autocomplete="off">
+      <img class="example_img" src="images/font-preview-leco.png" width="56" height="66">
+      LECO
+    </label>
+  </div>
+</div>
+<hr>
+<label>Bluetooth Disconnection</label><br>
+<label class="subtle">Icon Indication</label>
+<div id="disconnect_icon_setting" class="form-group" >
+  <div class="btn-group btn-group-justified"  data-toggle="buttons">
+    <label class="btn btn-default" data-setting="no" >
+      <input type="radio" name="options" autocomplete="off">Hide
+    </label>
+    <label class="btn btn-default" data-setting="yes" >
+      <input type="radio" name="options" autocomplete="off">Show
+    </label>
+  </div>
+</div>
+<label class="subtle">Vibration</label>
+<div id="bluetooth_vibe_setting" class="form-group" >
+  <div class="btn-group btn-group-justified"  data-toggle="buttons">
+    <label class="btn btn-default" data-setting="no" >
+      <input type="radio" name="options" autocomplete="off">None
+    </label>
+    <label class="btn btn-default" data-setting="yes" >
+      <input type="radio" name="options" autocomplete="off">Vibrate
+    </label>
+  </div>
+</div>
+<hr>
+<label>Notification</label><br>
+<label class="subtle">Vibration on interval</label>
+<div id="hourly_vibe_setting" class="form-group" >
+  <div class="btn-group btn-group-justified"  data-toggle="buttons">
+    <label class="btn btn-default" data-setting="no" >
+      <input type="radio" name="options" autocomplete="off">No vibration
+    </label>
+    <label class="btn btn-default" data-setting="half" >
+      <input type="radio" name="options" autocomplete="off">Every 30 minutes
+    </label>
+    <label class="btn btn-default" data-setting="yes" >
+      <input type="radio" name="options" autocomplete="off">Every hour
+    </label>
+  </div>
+</div>
+<hr>
+<label>Regional Options</label><br />
+<label class="subtle">Language</label><br />
+<div class="form-group" >
+<select id="language_selection" class="form-control">
+  <option data-setting="0" selected>English (Default)</option>
+  <option data-setting="30">Bahasa Indonesia</option>
+  <option data-setting="15">Català</option>
+  <option data-setting="7">Čeština</option>
+  <option data-setting="32">Cymraeg</option>
+  <option data-setting="21">Dansk</option>
+  <option data-setting="2">Deutsch</option>
+  <option data-setting="18">Eesti</option>
+  <option data-setting="3">Español</option>
+  <option data-setting="19">Euskara</option>
+  <option data-setting="1">Français</option>
+  <option data-setting="26">Gaeilge</option>
+  <option data-setting="33">Galego</option>
+  <option data-setting="25">Hrvatski</option>
+  <option data-setting="4">Italiano</option>
+  <option data-setting="27">Latviešu</option>
+  <option data-setting="22">Lietuviškai</option>
+  <option data-setting="24">Magyar</option>
+  <option data-setting="5">Nederlands</option>
+  <option data-setting="16">Norsk</option>
+  <option data-setting="14">Română</option>
+  <option data-setting="11">Polski</option>
+  <option data-setting="8">Português</option>
+  <option data-setting="12">Slovenčina</option>
+  <option data-setting="23">Slovenščina</option>
+  <option data-setting="20">Suomi</option>
+  <option data-setting="28">Srpski</option>
+  <option data-setting="10">Svenska</option>
+  <option data-setting="13">Tiếng Việt</option>
+  <option data-setting="6">Türkçe</option>
+  <option data-setting="9">Ελληνικά (requires language pack)</option>
+  <option data-setting="17">Русский (requires language pack)</option>
+  <option data-setting="31">Українська (requires language pack)</option>
+  <option data-setting="29">中文 (requires language pack)</option>
+  <option data-setting="34">日本語 (requires language pack)</option>
+  <option data-setting="35">한국어 (requires language pack)</option>
+  <option data-setting="36">‏עברית‏ (requires language pack)</option>
+</select>
+</div>
+
+<label class="subtle">Decimal Separator</label>
+<div id="decimal_separator" class="form-group" >
+  <div class="btn-group btn-group-justified"  data-toggle="buttons">
+    <label class="btn btn-default" data-setting="." style="font-size: 24px">
+      <input type="radio" name="options" autocomplete="off">.
+    </label>
+    <label class="btn btn-default" data-setting="," style="font-size: 24px">
+      <input type="radio" name="options" autocomplete="off">,
+    </label>
+  </div>
+</div>
+
+
+</form>
+</div>
+
+<script>
+  var has_health = true;
+  var is_bw = false;
+</script>
+
+<script src="lib/jquery-2.2.4.min.js"></script>
+<script src="lib/bootstrap-3.4.1.min.js"></script>
+<script src="lib/spectrum/spectrum.js"></script>
+<script src="lib/jquery.geocomplete.min.js"></script>
+<script>
+// set up the color pickers
+$(".colorpicker").spectrum({
+    allowEmpty: true,
+    showPaletteOnly: true,
+    preferredFormat: "hex",
+    hideAfterPaletteSelect: true,
+    change: function(color) {
+        // if we change a custom color, deselect any preset_selector
+        $('#preset_selector > .active').removeClass('active');
+    },
+    palette: [
+        ["#000000", "#000055", "#0000AA", "#0000FF", "#005500", "#005555", "#0055AA", "#0055FF",
+        "#550000", "#550055", "#5500AA", "#5500FF", "#555500", "#555555", "#5555AA", "#5555FF",
+        "#AA0000", "#AA0055", "#AA00AA", "#AA00FF", "#AA5500", "#AA5555", "#AA55AA", "#AA55FF",
+        "#FF0000", "#FF0055", "#FF00AA", "#FF00FF", "#FF5500", "#FF5555", "#FF55AA", "#FF55FF",
+        "#00AA00", "#00AA55", "#00AAAA", "#00AAFF", "#00FF00", "#00FF55", "#00FFAA", "#00FFFF",
+        "#55AA00", "#55AA55", "#55AAAA", "#55AAFF", "#55FF00", "#55FF55", "#55FFAA", "#55FFFF",
+        "#AAAA00", "#AAAA55", "#AAAAAA", "#AAAAFF", "#AAFF00", "#AAFF55", "#AAFFAA", "#AAFFFF",
+        "#FFAA00", "#FFAA55", "#FFAAAA", "#FFAAFF", "#FFFF00", "#FFFF55", "#FFFFAA", "#FFFFFF"
+        ]
+    ]
+});
+
+</script>
+<script>
+  var has_health = true;
+</script>
+<script src="js/config.js"></script>
+</body>
+</html>
+
+
+
+</html>
