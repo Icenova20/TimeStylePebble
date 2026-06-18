@@ -9,23 +9,47 @@ function getCurrentUVFromHourly(json, now) {
   var times = json.hourly.time;
   var uvValues = json.hourly.uv_index;
 
+  var nowTime = now.getTime();
+  var low = 0;
+  var high = times.length - 1;
+  var exactMatch = -1;
+
+  while (low <= high) {
+    var mid = Math.floor((low + high) / 2);
+    var t = Date.parse(times[mid]);
+
+    if (t === nowTime) {
+      exactMatch = mid;
+      break;
+    } else if (t < nowTime) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+
+  if (exactMatch !== -1) {
+    return Math.round(uvValues[exactMatch]);
+  }
+
   var closestIndex = 0;
   var smallestDiff = Infinity;
 
-  var nowTime = now.getTime();
+  if (low < times.length) {
+    smallestDiff = Math.abs(Date.parse(times[low]) - nowTime);
+    closestIndex = low;
+  } else {
+    closestIndex = times.length - 1;
+    smallestDiff = Math.abs(Date.parse(times[closestIndex]) - nowTime);
+  }
 
-  for (var i = 0; i < times.length; i++) {
-    var t = Date.parse(times[i]);
-    var diff = Math.abs(t - nowTime);
-    if (diff < smallestDiff) {
-      smallestDiff = diff;
-      closestIndex = i;
-    } else if (diff > smallestDiff) {
-      // Since times are sequential, once the difference starts increasing,
-      // we have passed the closest time and can break early.
-      break;
+  if (high >= 0) {
+    var diffHigh = Math.abs(Date.parse(times[high]) - nowTime);
+    if (diffHigh <= smallestDiff) {
+      closestIndex = high;
     }
   }
+
   return Math.round(uvValues[closestIndex]);
 }
 
